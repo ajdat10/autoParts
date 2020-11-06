@@ -5,7 +5,7 @@ You will be making your own API with this deliverable. This includes Schemas, Co
 ## To Get Started
 - Create a new repo
 - Inside that repo `touch server.js .gitignore`
-- `npm init -y` to set up your 
+- `npm init -y` to set up your package.json
 - Then `npm i express mongoose nodemon`
 - For middleware, `npm i morgan cors body-parser`
 - Remember that to use your packages, you need to require them in your server, then use them.
