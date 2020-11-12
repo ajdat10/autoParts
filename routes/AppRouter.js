@@ -1,11 +1,11 @@
 const Router = require('express').Router()
 
 const UserRouter = require('./UserRouter')
-const CarRouter = require('./CarRouter')
-const DealerRouter = require('./DealerRouter')
+const ProductRouter = require('./ProductRouter')
+const CommentRouter = require('./CommentRouter')
 
 Router.use('/users', UserRouter)
-Router.use('/cars', CarRouter)
-Router.use('/dealers', DealerRouter)
+Router.use('/posts', ProductRouter)
+Router.use('/comments', CommentRouter)
 
 module.exports = Router
