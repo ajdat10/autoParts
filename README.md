@@ -1,29 +1,25 @@
-# Make Your Own API 
+# AJay's Imports
 
-<div>
-  <img alt="crud" src="https://miro.medium.com/max/10222/1*VTbKBIISbB9PhUK15H9xkA.png" />
-</div>
+#### November 9, 2020
 
-You will be making your own API with this deliverable. This includes Schemas, Controllers/Routes, and a Server. What you create with your API is totally up to you, however, we do have a few requirements and/or recommendations. Be creative, this API is entirely up to you. Use examples from what we've covered on APIs this week, you can do this! 
+ ##### By: Andrew Cruz
 
-## To Get Started
-- Create a new repo
-- Inside that repo `touch server.js .gitignore`
-- `npm init -y` to set up your package.json
-- Then `npm i express mongoose nodemon`
-- For middleware, `npm i morgan cors body-parser`
-- Remember that to use your packages, you need to require them in your server, then use them.
-- Add your `node_modules` and `package-lock.json` to your `.gitignore` file.
-- If you don't want to make scripts to run your server, change the "main" inside package.json (line 4) to `server.js`
-- Once your app is listening to a PORT just run `nodemon` from your repo on the command line.
+***
 
-## Requirements
-- Your API should have a MongoDB database connection to create your database.
-- Your API should have at least 3 Schemas/models with at least 1 association/relationship between models.
-- Your server should require express, use some middleware, connect to your database connection, have a route that connects to your AppRouter, and be listening on a PORT.
-- Your API should have routes/controllers with specific paths and include full CRUD on at least one model in your database.
+## User Guideline
 
-## Recommendations
-- Keep it simple, overcomplicating your models will make building routes more difficult.
-- Use lessons and labs as a reference for the structure of your API.
-- You **don't** need a seed file. You can create data from your routes with `Insomnia`
+The user will be able to log onto the website and get a list of auto parts for their vehicle. On the page they will see a display with the product, price, and a button where they can add that automotive part to their cart. When the user is ready to checkout they will click a icon on the top right of their page and it will direct them to a registration page, which will ask for username (email) and create a password. Once registered they will see a grand total of their order and will be asked to input an address and credit/debit card information. After successfully processing the order they will see a final Thank you page.
+***
+
+## Technologies
+
+* TBD
+***
+
+## AJay's Imports ERD
+
+![ERD](AJay's-Imports-ERD.png)
+
+
+
+
