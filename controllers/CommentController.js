@@ -5,7 +5,7 @@ const CreateComment = async (req, res) => {
     try {
       const comment = new Comment({ ...req.body, user_id: req.params.user_id })
       comment.save()
-      await TravelLog.update(
+      await Product.update(
         { _id: req.params.post_id },
         {
           $push: {
