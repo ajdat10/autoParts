@@ -1,3 +1,4 @@
+// const { catch } = require('../db/connection')
 const { Product, User, Comment } = require('../db/schema')
 
 const GetPosts = async (req, res) =>{
@@ -24,20 +25,47 @@ const CreatePost = async (req, res) => {
   }
 }
 
-const GetPostsById = async (req, res) => {
+const GetPostById = async (req, res) => {
   try {
-    const post = await (await Product.findById(req.params.post_id)).populated([
+    const post = await (await Product.findById(req.params.post_id))
+  
+ res.send(post)
+  }catch(error) {
+    throw error;
+  }
+}
+
+const DeletePost = async (req, res) => {
+  try {
+    const post = await Product.findById(req.params.post_id)
+    await Comment.deleteMany({ _id: { $in: post.comments } })
+    await Product.findByIdAndDelete(req.params.post_id)
+    res.send({ msg: 'Post deleted' })
+  } catch (error) {
+    throw error
+  }
+}
+
+const UpdatePost = async (req, res) => {
+  try {
+    const post = await Product.findById(req.params.post_id)
+    await Product.findByIdAndUpdate(
+      req.params.post_id,
       {
-        model: 'users',
-        path: 'user_id',
-        select: '_id name'
-      }
-    ])
-    res.send(post)
+        ...req.body
+      },
+      { new: true, useFindAndModify: false },
+      (err, (post) => (err ? err : res.send(post)))
+    )
+  } catch (error) {
+    throw error
   }
 }
 
 module.exports = {
     GetPosts,
-    CreatePost
+    CreatePost,
+    GetPostById,
+    UpdatePost,
+    DeletePost
 } 
