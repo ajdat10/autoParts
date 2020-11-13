@@ -48,15 +48,15 @@ const DeletePost = async (req, res) => {
 
 const UpdatePost = async (req, res) => {
   try {
-    const post = await Product.findById(req.params.post_id)
-    await Product.findByIdAndUpdate(
+    
+    const post = await Product.findByIdAndUpdate(
       req.params.post_id,
       {
         ...req.body
       },
       { new: true, useFindAndModify: false },
-      (err, (post) => (err ? err : res.send(post)))
-    )
+      )
+    res.send(post)
   } catch (error) {
     throw error
   }

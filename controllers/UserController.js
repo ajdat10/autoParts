@@ -17,7 +17,7 @@ const GetProfile = async (req, res) =>{
 }
 
 const CreateUser = async (req, res) => {
-    console.log(req.body)
+   
     try{
         const body = req.body
         const password_digest = await generatePassword(body.password)
