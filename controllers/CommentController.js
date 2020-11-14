@@ -33,23 +33,23 @@ const CreateComment = async (req, res) => {
     }
   }
 
-//   const UpdateComment = async (req, res) => {
-//     try {
-//       const comment = await Comment.findByIdAndUpdate(
-//         req.params.comment_id,
-//         {
-//           ...req.body
-//         },
-//         { new: true, useFindAndModify: false },
-//         )
-//       res.send(comment)
-//     } catch (error) {
-//       throw error
-//     }
-//   }
+  const UpdateComment = async (req, res) => {
+    try {
+      const comment = await Comment.findByIdAndUpdate(
+        req.params.comment_id,
+        {
+          ...req.body
+        },
+        { new: true, useFindAndModify: false },
+        )
+      res.send(comment)
+    } catch (error) {
+      throw error
+    }
+  }
   
   module.exports ={
       CreateComment,
       DeleteComment,
-      // UpdateComment
+      UpdateComment
   }
