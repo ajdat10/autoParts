@@ -15,23 +15,23 @@ const CreateComment = async (req, res) => {
   }
 
 
-//   const DeleteComment = async (req, res) => {
-//     try{
-//       await Comment.deleteOne({ _id: req.params.comment_id })
-//       console.log( Comment)
-//       await Product.findByIdAndUpdate(
-//         {_id: req.params.post_id},
-//         { $pull: { comments: req.params.comment_id  } },
-//         { upsert: true, new: true },
-//         (err, updatedPost) => {
-//           if(err){console.log(err)}
-//           res.send(updatedPost)
-//         }
-//         )
-//     }catch(err){
-//       throw err
-//     }
-//   }
+  const DeleteComment = async (req, res) => {
+    try{
+      await Comment.deleteOne({ _id: req.params.comment_id })
+      console.log( Comment)
+      await Product.findByIdAndUpdate(
+        {_id: req.params.post_id},
+        { $pull: { comments: req.params.comment_id  } },
+        { upsert: true, new: true },
+        (err, updatedPost) => {
+          if(err){console.log(err)}
+          res.send(updatedPost)
+        }
+        )
+    }catch(err){
+      throw err
+    }
+  }
 
 //   const UpdateComment = async (req, res) => {
 //     try {
@@ -50,6 +50,6 @@ const CreateComment = async (req, res) => {
   
   module.exports ={
       CreateComment,
-      // DeleteComment,
+      DeleteComment,
       // UpdateComment
   }
