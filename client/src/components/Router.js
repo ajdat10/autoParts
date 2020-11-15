@@ -1,24 +1,33 @@
-import React, {Component} from 'react'
-import {Switch, Route, withRouter} from 'react-router-dom'
-import Layout from './Layout'
+import React, { Component } from 'react'
+import {Switch, Route} from 'react-router-dom'
 import Home from '../pages/Home'
 class Router extends Component {
-    constructor(){
-        super()
+    constructor() {
+      super()
+      this.state = {
+        pageLoading: true
+      }
     }
-    render(){
-        return(
-            <div>
-                <Route 
-                exact path = "/"
-                component={() => (
-                    <Layout>
-                       
-                    </Layout>
-                )} />
-            </div>
-        )
-    }
+componentDidMount() {
+    this.setState({pageLoading: false})
 }
-
+    render() {
+        return (
+            <main>
+                {this.state.pageLoading ? (
+                <h3>Loading...</h3>
+                ) : (
+                <Switch>
+                    <Route
+                        exact path="/"
+                        component={(props) => (
+                            <Home></Home>
+                        )}
+                    />
+                </Switch>
+            )}
+            </main>
+    )
+  }
+}
 export default Router
