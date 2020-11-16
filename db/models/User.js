@@ -9,8 +9,7 @@ module.exports = new Schema(
       email:{
         type:String,
         require:true,
-        unique:true,
-        index: true,
+       
       },
       location:{
         type:String,

@@ -6,7 +6,7 @@ const GetPosts = async (req, res) =>{
         const {page, limit} = req.query
         const offset = 
             page === '1' ? 0 : Math.floor(parseInt(page) * parseInt(limit))
-        const post = await Product.find()
+        const posts = await Product.find()
         .limit(parseInt(limit))
       .skip(offset)
     res.send(posts)

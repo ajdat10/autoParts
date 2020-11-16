@@ -10,7 +10,7 @@ export default ({ authenticated, currentUser, className }) => {
       <Link href="#" className="brand-logo center">AJay's Auto Blog</Link>
       <ul id="nav-mobile" className="right hide-on-med-and-down">
         <li><Link activeClassName="nav-active" to="/login">Sign In</Link></li>
-        <li><Link href="/register">Sign Up</Link></li>
+        <li><Link activeClassName="nav-active" to="/register">Sign Up</Link></li>
         
       </ul>
     </div>

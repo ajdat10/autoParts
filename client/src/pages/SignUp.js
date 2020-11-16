@@ -33,19 +33,20 @@ export default class Signup extends Component {
       <div className="signup flex-col">
         <form className="flex-col" onSubmit={this.handleSubmit}>
           <TextInput
-            placeholder="Your Email"
-            name="email"
-            value={email}
-            type="email"
-            onChange={this.handleChange}
-          />
-          <TextInput
             placeholder="Your Name"
             type="text"
             name="name"
             value={name}
             onChange={this.handleChange}
           />
+          <TextInput
+            placeholder="Your Email"
+            name="email"
+            value={email}
+            type="email"
+            onChange={this.handleChange}
+          />
+          
           <TextInput
             placeholder="Password"
             type="password"

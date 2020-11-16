@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
-import {Switch, Route} from 'react-router-dom'
+import {Switch, withRouter,Route} from 'react-router-dom'
 import Home from '../pages/Home'
 import SignIn from '../pages/SignIn'
 import { __CheckSession } from '../services/UserServices'
 import Profile from '../pages/Profile'
 import SignUp from '../pages/SignUp'
+import Feed from '../pages/Feed'
 
 class Router extends Component {
     constructor() {
@@ -90,13 +91,19 @@ class Router extends Component {
             )}
             />
             <Route
-            path='/login'
+            path='/register'
             component={(props) => (
                 <SignUp {...props}/>
             )}
             />
+            <Route
+                path="/feed"
+                component={(props) => (
+                    <Feed {...props}/>
+                )}
+                />
             </main>
     )
   }
 }
-export default Router
+export default withRouter(Router) 
