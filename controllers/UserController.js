@@ -34,7 +34,28 @@ const CreateUser = async (req, res) => {
     }
 }
 
-const RefreshSession = (req, res) => {
+const SignInUser = async (req, res, next) => {
+    try {
+      const user = await User.findOne({ email: req.body.email })
+  
+      if (
+        user &&
+        (await checkPassword(req.body.password, user.password_digest))
+      ) {
+        const payload = {
+          _id: user._id,
+          name: user.name
+        }
+        res.locals.payload = payload
+        return next()
+      }
+      res.status(401).send({ msg: 'No no no think again' })
+    } catch (error) {
+      throw error
+    }
+  }
+  
+  const RefreshSession = (req, res) => {
     try {
       const token = res.locals.token
       res.send({ user: jwt.decode(token), token: res.locals.token })
@@ -46,5 +67,6 @@ const RefreshSession = (req, res) => {
 module.exports = {
     GetProfile,
     CreateUser,
-    RefreshSession
+    RefreshSession,
+    SignInUser
 }
