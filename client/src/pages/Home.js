@@ -1,14 +1,15 @@
 import React from 'react'
-import Nav from '../components/Nav'
+
 export default () => {
   return (
     <div>
-        <div>
-            <div></div>
-            <div>
-                <Nav></Nav>
-            </div>
-        </div>
+      <div>
+          
+          <h3 className = "welcome-title center">Ready To Show Off?!?!</h3>
+          <h6 className="signin/signup center">Sign in or register to get started</h6>
+      </div>
     </div>
+  
+    
   )
 }

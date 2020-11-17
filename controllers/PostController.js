@@ -13,12 +13,26 @@ const GetPosts = async (req, res) =>{
   } catch (error) {
     throw error
   }
-    }
+}
+
+const GetUserPosts = async (req, res) =>{
+  try {
+    const userPosts = await Product.find({user_id: req.params.user_id})
+    res.send(userPosts)
+  } catch (error) {
+    throw error
+  }
+}
 
 const CreatePost = async (req, res) => {
   try{
-    const newPost = new Product({...req.body, user_id: req.params.user_id})
+    const newPost = await new Product({...req.body, user_id: req.params.user_id})
     newPost.save()
+    await User.findByIdAndUpdate(
+      {_id: req.params.user_id},
+      {$push: {products: newPost}},
+      {upsert: true, new: true, useFindAndModify: false}
+    )
     res.send(newPost)
   }catch (error) {
     throw error
@@ -67,5 +81,6 @@ module.exports = {
     CreatePost,
     GetPostById,
     UpdatePost,
-    DeletePost
+    DeletePost,
+    GetUserPosts
 } 

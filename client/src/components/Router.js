@@ -6,6 +6,10 @@ import { __CheckSession } from '../services/UserServices'
 import Profile from '../pages/Profile'
 import SignUp from '../pages/SignUp'
 import Feed from '../pages/Feed'
+import CreatePost from '../pages/CreatePost'
+import Layout from '../pages/Layout'
+
+
 
 class Router extends Component {
     constructor() {
@@ -59,51 +63,66 @@ class Router extends Component {
     }
     render() {
         return (
-            <main>
-                {this.state.pageLoading ? (
-                <h3>Loading...</h3>
-                ) : (
-                <Switch>
+          <main>
+              {this.state.pageLoading ? (
+              <h3>Loading...</h3>
+              ) : (
+                <Layout {...this.props}
+                  currentUser={this.state.currentUser}
+                  authenticated={this.state.authenticated}
+                >
+                  <Switch>
                     <Route
-                        exact path="/"
-                        component={(props) => (
-                            <Home></Home>
-                        )}
+                      exact path="/"
+                      component={(props) => (
+                        <Home></Home>
+                      )}
                     />
-                </Switch>
+                    <Route
+                      path="/login"
+                      component={(props) => (
+                        <SignIn
+                          currentUser={this.state.currentUser}
+                          authenticated={this.state.authenticated}
+                          toggleAuthenticated={this.toggleAuthenticated}
+                          {...props}
+                        />
+                      )}
+                    />
+                    <Route
+                      path="/profile"
+                      component={(props) => (
+                        <Profile {...props}
+                        currentUser={this.state.currentUser}/>
+                      )}
+                    />
+                    <Route
+                      path='/register'
+                      component={(props) => (
+                        <SignUp {...props}/>
+                      )}
+                    />
+                    <Route
+                      path="/feed"
+                      component={(props) => (
+                        <Feed {...props}/>
+                      )}
+                    />
+                    <Route
+                      authenticated={this.state.authenticated}
+                      path="/upload"
+                      component={(props) => (
+                        <CreatePost
+                          currentUser={this.state.currentUser}
+                          authenticated={this.state.authenticated}
+                          {...props} currentUser={this.state.currentUser} 
+                        />
+                      )}
+                    />
+                  </Switch>
+                </Layout>
             )}
-            <Route
-              path="/login"
-              component={(props) => (
-                  <SignIn
-                    currentUser={this.state.currentUser}
-                    authenticated={this.state.authenticated}
-                    toggleAuthenticated={this.toggleAuthenticated}
-                    {...props}
-                  />
-                
-              )}
-            />
-            <Route
-            path="/profile"
-            component={(props) => (
-                <Profile/>
-            )}
-            />
-            <Route
-            path='/register'
-            component={(props) => (
-                <SignUp {...props}/>
-            )}
-            />
-            <Route
-                path="/feed"
-                component={(props) => (
-                    <Feed {...props}/>
-                )}
-                />
-            </main>
-    )
-  }
+          </main>
+    )}
 }
 export default withRouter(Router) 

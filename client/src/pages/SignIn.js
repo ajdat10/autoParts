@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import TextInput from '../components/TextInput'
 import { __LoginUser } from '../services/UserServices'
-
+import {Link} from 'react-router-dom'
+import '../styles/SignIn.css'
 export default class SignIn extends Component {
   constructor() {
     super()
@@ -32,6 +33,7 @@ export default class SignIn extends Component {
     const { email, password } = this.state
     return (
       <div className="signin flex-col">
+      
         <form className="flex-col" onSubmit={this.handleSubmit}>
           <TextInput
             placeholder="Your Email"
@@ -47,10 +49,14 @@ export default class SignIn extends Component {
             value={password}
             onChange={this.handleChange}
           />
-          <button>Sign In</button>
+          <button className="btn waves-effect waves-light" type="submit" name="action">Sign Up
+            <i className="material-icons right">directions_car</i>
+          </button>
           {this.state.formError ? <p>Error While Logging In</p> : <p></p>}
         </form>
+        
       </div>
+      
     )
   }
 }

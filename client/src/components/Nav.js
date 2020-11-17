@@ -2,20 +2,27 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 
 
-export default ({ authenticated, currentUser, className }) => {
+const Nav = (props) => {
+  console.log(props.currentUser)
   return (
-    <header className={className}>
-     <nav>
-    <div className="nav-wrapper">
-      <Link href="#" className="brand-logo center">AJay's Auto Blog</Link>
-      <ul id="nav-mobile" className="right hide-on-med-and-down">
-        <li><Link activeClassName="nav-active" to="/login">Sign In</Link></li>
-        <li><Link activeClassName="nav-active" to="/register">Sign Up</Link></li>
-        
-      </ul>
-    </div>
-  </nav>
-
-    </header>
+      <nav>
+        <div className="nav-wrapper">
+          <Link className="nav-active brand-logo center" to="/" >AJay's Imports</Link>
+          {props.currentUser ? 
+            <ul id="nav-mobile" className="right">
+              <li><Link className="nav-active" to="#">Sign Out</Link></li>
+              <li><Link className="nav-active" to="/feed">Feed</Link></li>
+              <li><Link className="nav-active" to="/profile">{props.currentUser.name}</Link></li>
+            </ul>
+          :
+            <ul id="nav-mobile" className="right">
+              <li><Link className="nav-active" to="/login">Sign In</Link></li>
+              <li><Link className="nav-active" to="/register">Sign Up</Link></li>
+            </ul>
+          }
+        </div>
+      </nav>
   )
 }
+
+export default Nav

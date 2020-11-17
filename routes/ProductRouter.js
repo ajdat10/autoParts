@@ -6,5 +6,6 @@ Router.get('/:post_id', PostController.GetPostById)
 Router.post('/:user_id', PostController.CreatePost)
 Router.put('/:post_id', PostController.UpdatePost)
 Router.delete('/:post_id', PostController.DeletePost)
+Router.get('/:user_id', PostController.GetUserPosts)
 
 module.exports = Router

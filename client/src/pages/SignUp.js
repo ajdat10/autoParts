@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import TextInput from '../components/TextInput'
 import { __RegisterUser } from '../services/UserServices'
+import {Link} from 'react-router-dom'
 
 export default class Signup extends Component {
   // TODO Integrate Auth
@@ -31,6 +32,7 @@ export default class Signup extends Component {
     const { name, password, email } = this.state
     return (
       <div className="signup flex-col">
+        
         <form className="flex-col" onSubmit={this.handleSubmit}>
           <TextInput
             placeholder="Your Name"
@@ -54,7 +56,9 @@ export default class Signup extends Component {
             value={password}
             onChange={this.handleChange}
           />
-          <button>Sign Up</button>
+          <button className="btn waves-effect waves-light" type="submit" name="action">Sign Up
+            <i className="material-icons right">directions_car</i>
+          </button>
         </form>
       </div>
     )

@@ -23,10 +23,10 @@ module.exports = new Schema(
       type: Schema.Types.ObjectId,
       ref: 'comments'
       },
-      products:{
+      products:[{
         type: Schema.Types.ObjectId,
         ref: 'products'
-      }
+      }]
     },
     { timestamps: true }
   )

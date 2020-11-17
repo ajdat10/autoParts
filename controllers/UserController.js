@@ -8,7 +8,7 @@ const {
 
 const GetProfile = async (req, res) =>{
     try{
-        const user = await User.findById(req.params.user_id).select('_id name')
+        const user = await User.findById(req.params.user_id)
         const posts = await Product.find({user_id: req.params.user_id})
         res.send({user, posts })
     }catch(error) {
