@@ -49,7 +49,7 @@ export default class SignIn extends Component {
             value={password}
             onChange={this.handleChange}
           />
-          <button className="btn waves-effect waves-light" type="submit" name="action">Sign Up
+          <button className="btn waves-effect waves-light" type="submit" name="action">Sign In
             <i className="material-icons right">directions_car</i>
           </button>
           {this.state.formError ? <p>Error While Logging In</p> : <p></p>}
