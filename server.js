@@ -1,4 +1,5 @@
 const app = require('express')()
+const express = require('express')
 const path = require('path')
 const cors = require('cors')
 const bodyParser = require('body-parser')
@@ -6,6 +7,7 @@ const logger = require('morgan')
 const connection = require('./db/connection')
 const AppRouter = require('./routes/AppRouter')
 const PORT = process.env.PORT || 3001
+const helmet = require('helmet')
 // Initialize Middleware
 app.use(logger('dev'))
 app.use(cors())
