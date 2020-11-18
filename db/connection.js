@@ -1,5 +1,8 @@
+require("dotenv").config()
 const mongoose = require('mongoose')
-const connection = mongoose.connect('mongodb://localhost:27017/autoPartsDatabase', {
+const MONGO_URI = process.env.MONGO_URI
+
+const connection = mongoose.connect(process.env.NODE_ENV === 'production' ? MONGO_URI : 'mongodb://localhost:27017/autoPartsDatabase', {
   useNewUrlParser: true,
   useFindAndModify: true,
   useUnifiedTopology: true,
