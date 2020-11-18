@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import TextInput from '../components/TextInput'
-import {CreateComment} from '../services/CommentServices'
+import {__CreateComment} from '../services/CommentServices'
 
-export default class CreatePost extends Component {
+export default class CreateComment extends Component {
   constructor() {
     super()
     this.state = {
@@ -18,7 +18,7 @@ export default class CreatePost extends Component {
     e.preventDefault()
     try {
         console.log(e)
-      await CreateComment(this.state, this.props.currentUser._id)
+      await __CreateComment(this.state, this.props.currentUser._id, this.props.postId)
       this.props.history.push('/feed')
     } catch (error) {
       console.log(error)
@@ -37,7 +37,7 @@ export default class CreatePost extends Component {
             value={comment}
             onChange={this.handleChange}
           />
-          <button type="submit">Upload</button>
+          <button type="submit">Comment</button>
         </form>
       </div>
     )

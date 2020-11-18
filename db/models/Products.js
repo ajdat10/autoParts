@@ -19,10 +19,10 @@ module.exports = new Schema (
             type: Schema.Types.ObjectId,
             ref:'users'
         },
-        comments:{
+        comments:[{
             type: Schema.Types.ObjectId,
             ref: 'comments'
-        }
+        }]
     },
     {timestamps: true}
 )

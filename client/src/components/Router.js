@@ -105,7 +105,9 @@ class Router extends Component {
                     <Route
                       path="/feed"
                       component={(props) => (
-                        <Feed {...props}/>
+                        <Feed {...props}
+                        currentUser={this.state.currentUser}
+                        />
                       )}
                     />
                     <Route
