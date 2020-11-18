@@ -19,10 +19,10 @@ module.exports = new Schema(
         type:String,
         required:true
       },
-      comments:{
+      comments:[{
       type: Schema.Types.ObjectId,
       ref: 'comments'
-      },
+      }],
       products:[{
         type: Schema.Types.ObjectId,
         ref: 'products'

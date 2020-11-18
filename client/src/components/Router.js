@@ -8,7 +8,7 @@ import SignUp from '../pages/SignUp'
 import Feed from '../pages/Feed'
 import CreatePost from '../pages/CreatePost'
 import Layout from '../pages/Layout'
-
+import CreateComment from '../pages/CreateComment'
 
 
 class Router extends Component {
@@ -116,8 +116,17 @@ class Router extends Component {
                           currentUser={this.state.currentUser}
                           authenticated={this.state.authenticated}
                           {...props} currentUser={this.state.currentUser} 
-                        />
+                        />                    
                       )}
+                    />
+                    <Route
+                    path="/create"
+                    component={(props) =>(
+                      <CreateComment
+                        currentUser={this.state.currentUser}
+                      
+                      />
+                    )}
                     />
                   </Switch>
                 </Layout>

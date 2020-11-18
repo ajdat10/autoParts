@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { __GetPosts } from '../services/PostServices'
 
+
 export default class Feed extends Component {
     constructor() {
         super()
@@ -23,6 +24,11 @@ export default class Feed extends Component {
             console.log(error)
         }
     }
+
+    createComment = async () => {
+        this.props.history.push('/create')
+    }
+
     incrementPage = () =>
         this.setState(
             (prevstate) => ({ currentPage: prevstate.currentPage + 1 }),
@@ -43,7 +49,12 @@ export default class Feed extends Component {
                             <div className="card">
                                 <div className="card-image">
                                     <img src={post.image_url} />
-                                    <button className="btn-floating halfway-fab waves-effect waves-light red"><i className="material-icons">add</i></button>
+                                    <button 
+                                    className="btn-floating halfway-fab waves-effect waves-light red"
+                                    onClick={this.createComment}
+                                    >
+                                        <i className="material-icons">add</i>
+                                    </button>
                                 </div>
                                 <div className="card-content">
                                     <p>{post.description}</p>
