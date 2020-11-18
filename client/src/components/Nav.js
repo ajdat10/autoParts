@@ -1,12 +1,13 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
+import '../styles/Nav.css'
 
 
 const Nav = (props) => {
   console.log(props.currentUser)
   return (
       <nav>
-        <div className="nav-wrapper">
+        <div className="nav-wrapper grey darken-4">
           <Link className="nav-active brand-logo center" to="/" >AJay's Imports</Link>
           {props.currentUser ? 
             <ul id="nav-mobile" className="right">

@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { __DeletePost } from '../services/PostServices'
 import { __GetProfile } from '../services/UserServices'
 import UpdatePost from "../pages/UpdatePost"
+import "../styles/Profile.css"
 
 export default class Profile extends Component {
   constructor() {

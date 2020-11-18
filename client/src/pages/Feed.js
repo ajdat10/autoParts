@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { __GetPosts } from '../services/PostServices'
 import CreateComment from '../pages/CreateComment'
 import Comments from '../components/Comments'
+import '../styles/Feed.css'
 
 
 export default class Feed extends Component {
