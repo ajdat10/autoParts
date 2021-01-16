@@ -67,12 +67,7 @@ export default class Feed extends Component {
                             <div className="card">
                                 <div className="card-image">
                                     <img src={post.image_url} />
-                                    {/* <button 
-                                    className="btn-floating halfway-fab waves-effect waves-light red"
-                                    onClick={this.createComment}
-                                    >
-                                        <i className="material-icons">add</i>
-                                    </button> */}
+                                    
                                 </div>
                                 <div className="card-content">
                                     <p>{post.description}</p>
@@ -85,7 +80,7 @@ export default class Feed extends Component {
                                     postId={post._id}/>
                                     <div>
                                     
-                                    </div>
+                                    </div>   
                                 </div>
                             </div>   
                         </div>

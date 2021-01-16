@@ -1,9 +1,18 @@
 body{
-    background-image: url(https://pbs.twimg.com/media/EJ5TUFUXUAEFinT.jpg:large);
+    background: url(../Nissan_Skyline.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+
 }
 
 .home{
     margin: 0 auto;
     margin-top: 15%;
     font-family: 'Racing Sans One', cursive;   
+}
+
+.signin-signup{
+
 }
