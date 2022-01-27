@@ -1,18 +1,25 @@
-body{
-    background: url(../Nissan_Skyline.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-    background-attachment: fixed;
-
+body {
+  background: url(../Nissan_Skyline.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
 }
 
-.home{
-    margin: 0 auto;
-    margin-top: 15%;
-    font-family: 'Racing Sans One', cursive;   
+.home {
+  margin: 0 auto;
+  margin-top: 5%;
+  font-family: "Racing Sans One", cursive;
+  color: red;
+  background-color: black;
+  opacity: 80%;
 }
 
-.signin-signup{
-
+.signin-signup {
+  width: 50%;
+  padding: 50px;
+  margin: auto;
+  font-size: larger;
+  color: rgb(0, 202, 0);
+  margin-top: -2%;
 }

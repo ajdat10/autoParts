@@ -1,34 +1,35 @@
-import React, { Component } from 'react'
-import TextInput from '../components/TextInput'
-import { __UpdatePost } from '../services/PostServices'
+import React, { Component } from "react";
+import TextInput from "../components/TextInput";
+import { __UpdatePost } from "../services/PostServices";
+import "../styles/Post.css";
 
 export default class CreatePost extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
-    image_url: this.props.post.image_url,    
-    description: this.props.post.description,
-    price: this.props.post.price
-    }
+      image_url: this.props.post.image_url,
+      description: this.props.post.description,
+      price: this.props.post.price,
+    };
   }
 
   handleChange = ({ target }) => {
-    this.setState({ [target.name]: target.value })
-  }
+    this.setState({ [target.name]: target.value });
+  };
 
   handleSubmit = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
     try {
-      await __UpdatePost(this.state, this.props.post._id)
-      this.props.history.push('/feed')
+      await __UpdatePost(this.state, this.props.post._id);
+      this.props.history.push("/feed");
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-  }
+  };
 
   render() {
-      console.log(this.props)
-    const { price, image_url, description } = this.state
+    console.log(this.props);
+    const { price, image_url, description } = this.state;
     return (
       <div className="upload content">
         <form className="flex-col" onSubmit={this.handleSubmit}>
@@ -55,6 +56,6 @@ export default class CreatePost extends Component {
           <button type="submit">Update</button>
         </form>
       </div>
-    )
+    );
   }
 }

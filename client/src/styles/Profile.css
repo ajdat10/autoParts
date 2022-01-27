@@ -1,4 +1,10 @@
-.profile{
-    font-family: 'Racing Sans One', cursive; 
+.profile {
+  font-family: "Racing Sans One", cursive;
+
 }
+
+.profile h1 , h3 {
+  color: red;
+}
+
 

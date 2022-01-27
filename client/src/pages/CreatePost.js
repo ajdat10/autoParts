@@ -1,36 +1,38 @@
-import React, { Component } from 'react'
-import TextInput from '../components/TextInput'
-import { __UploadPost } from '../services/PostServices'
+import React, { Component } from "react";
+import TextInput from "../components/TextInput";
+import { __UploadPost } from "../services/PostServices";
 
 export default class CreatePost extends Component {
   constructor() {
-    super()
+    super();
     this.state = {
-    image_url: '',    
-    description: '',
-    price: '',
-    }
+      image_url: "",
+      description: "",
+      price: "",
+      user: null,
+    };
   }
 
   handleChange = ({ target }) => {
-    this.setState({ [target.name]: target.value })
-  }
+    this.setState({ [target.name]: target.value });
+  };
 
   handleSubmit = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
     try {
-      await __UploadPost(this.state, this.props.currentUser._id)
-      this.props.history.push('/feed')
+      await __UploadPost(this.state, this.props.currentUser._id);
+      this.props.history.push("/feed");
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-  }
+  };
 
   render() {
-      console.log(this.props)
-    const { price, image_url, description } = this.state
+    console.log(this.props);
+    const { price, image_url, description } = this.state;
     return (
-      <div className="upload content">
+      <div className="create"> 
+        <h4>Create A Post</h4>
         <form className="flex-col" onSubmit={this.handleSubmit}>
           <TextInput
             placeholder="Image Url"
@@ -55,6 +57,6 @@ export default class CreatePost extends Component {
           <button type="submit">Upload</button>
         </form>
       </div>
-    )
+    );
   }
 }
